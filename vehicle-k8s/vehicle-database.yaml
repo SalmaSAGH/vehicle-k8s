@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-database
+  namespace: pitstop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vehicle-database
+  template:
+    metadata:
+      labels:
+        app: vehicle-database
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.7
+          env:
+            - name: MYSQL_DATABASE
+              value: vehicle_db
+            - name: MYSQL_ALLOW_EMPTY_PASSWORD
+              value: "yes"  # Permet un mot de passe vide pour root
+          ports:
+            - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vehicle-database
+  namespace: pitstop
+spec:
+  selector:
+    app: vehicle-database
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: ClusterIP
