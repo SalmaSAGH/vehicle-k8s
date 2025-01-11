@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-service
+  namespace: pitstop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vehicle-service
+  template:
+    metadata:
+      labels:
+        app: vehicle-service
+    spec:
+      containers:
+      - name: vehicle-container
+        image: registry.gitlab.com/salmasagh/pitstop_vehicle/vehicle:${DOCKER_IMAGE_TAG}
+        ports:
+        - containerPort: 8082
