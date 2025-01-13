@@ -9,10 +9,7 @@ spec:
   source:
     repoURL: https://gitlab.com/SalmaSAGH/pitstop_vehicle_kubernetes.git
     targetRevision: HEAD
-    path: product-k8s
-    repoURL: https://github.com/SalmaSAGH/vehicle-k8s.git
-    targetRevision: HEAD
-    path: dev
+    path: vehicle-k8s
 
   destination:
     server: https://kubernetes.default.svc
