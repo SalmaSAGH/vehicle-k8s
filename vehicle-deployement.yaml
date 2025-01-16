@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: vehicle-container
-          image: registry.gitlab.com/salmasagh/pitstop_vehicle/vehicle:07e80fd1
+          image: registry.gitlab.com/salmasagh/pitstop_vehicle/vehicle:ae4f64dc
           ports:
             - containerPort: 8082
           env:
@@ -52,4 +52,4 @@ spec:
   template:
     spec:
       containers:
-        - image: registry.gitlab.com/salmasagh/pitstop_vehicle/vehicle:07e80fd1
+        - image: registry.gitlab.com/salmasagh/pitstop_vehicle/vehicle:ae4f64dc
